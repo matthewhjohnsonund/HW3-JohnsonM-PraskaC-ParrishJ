@@ -1,5 +1,6 @@
 # 7.2 The Wumpus World
 
+#Extended - Added imports and added new sensor for exit/flower adjacency
 from logic import Expr, disjuncts
 
 
@@ -90,26 +91,27 @@ def location(x, y, time=None):
         return Expr('L', x, y, time)
 
 
-# #Extended – new sensor for exit/flower adjacency
+# Extended - new sensor for exit/flower adjacency
 def flower(x, y):
     return Expr('Flower', x, y)
 
-
+# Extended
 def exit_sq(x, y):
     return Expr('Exit', x, y)
 
-
+# Extended
 def gold(x, y):
     return Expr('Gold', x, y)
 
-
+# Extended
 def have_gold(time):
     return Expr('HaveGold', time)
 
-
+# Extended
 def percept_flower(time):
     return Expr('PerceptFlower', time)
 
+# Extended
 def no_breeze_at(x, y):   return Expr('NoBreezeAt', x, y)    
 def breeze_at(x, y):      return Expr('BreezeAt', x, y)      
 def no_stench_at(x, y):   return Expr('NoStenchAt', x, y)    

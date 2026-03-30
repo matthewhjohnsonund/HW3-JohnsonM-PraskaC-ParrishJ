@@ -119,6 +119,7 @@ class WumpusKB(PropKB):
 
         self._build_fc_rules(dimrow) 
 
+    # Extended
     def _build_fc_rules(self, dim):
         """
         Populate self.definite_kb with all static Horn-clause rules.
@@ -195,6 +196,7 @@ class WumpusKB(PropKB):
             for y in range(1, dim + 1):
                 dk.tell(implies(wumpus_dead_at(x, y), no_wumpus_at(x, y)))
 
+    # Extended
     @staticmethod
     def _neighbors(x, y, dim):
         """Return valid neighbors of (x,y) on dim×dim grid."""
@@ -205,6 +207,7 @@ class WumpusKB(PropKB):
                 result.append((nx, ny))
         return result
 
+    # Extended
     def _run_fc_sweep(self):
         """Run a full forward-chaining sweep over the definite KB once and cache
         every reachable symbol.  Called lazily whenever the cache is stale.
@@ -229,6 +232,7 @@ class WumpusKB(PropKB):
         self._fc_cache = {repr(sym): True for sym in inferred if inferred[sym]}  
         self._fc_dirty = False                               
 
+    # Extended
     def fc_query(self, symbol):
         """Ask whether symbol is entailed by the definite KB.
         Uses a single cached full-sweep via the FC algorithm; O(1) after first call.
@@ -238,31 +242,38 @@ class WumpusKB(PropKB):
             self._run_fc_sweep()                              
         return self._fc_cache.get(repr(symbol), False)        
 
+    # Extended
     def fc_tell(self, fact):
         """Add a unit fact to the definite KB; marks the cache as stale."""  
         self.definite_kb.tell(fact) 
         self._fc_dirty = True       
 
+    # Extended
     def is_safe(self, x, y):
         """Ask: is cell (x,y) proven safe? Uses pl_fc_entails. """
         return self.fc_query(safe_cell(x, y))  
 
+    # Extended
     def is_no_pit(self, x, y):
         """Ask: is cell (x,y) proven pit-free? Uses pl_fc_entails. """
         return self.fc_query(no_pit_at(x, y)) 
 
+    # Extended
     def is_no_wumpus(self, x, y):
         """Ask: is cell (x,y) proven wumpus-free? Uses pl_fc_entails."""
         return self.fc_query(no_wumpus_at(x, y))  
 
+    # Extended
     def is_pit(self, x, y):
         """Ask: is cell (x,y) confirmed to have a pit? Uses pl_fc_entails."""
         return self.fc_query(pit_at(x, y))  
 
+    # Extended
     def is_wumpus(self, x, y):
         """Ask: is cell (x,y) confirmed to have a wumpus? Uses pl_fc_entails. """
         return self.fc_query(wumpus_at(x, y))  
 
+    # Extended
     def make_action_sentence(self, action, time):
 
         actions = [move_forward(time), shoot(time), turn_left(time), turn_right(time),

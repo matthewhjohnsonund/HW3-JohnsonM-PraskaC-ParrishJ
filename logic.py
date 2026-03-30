@@ -1,5 +1,6 @@
 """
-logic_core.py
+logic.py
+Extended - logic expressions and inference algorithms for propositional logic
 """
 
 import itertools

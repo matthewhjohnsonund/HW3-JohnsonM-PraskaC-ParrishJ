@@ -1,7 +1,8 @@
 # 7.5.4 Forward and backward chaining
 
+# Extended – removed circular pl_fc_entails import
 from collections import defaultdict
-from KB import KB, Expr, expr, first, is_prop_symbol, is_definite_clause, conjuncts  # #Extended – removed circular pl_fc_entails import
+from KB import KB, Expr, expr, first, is_prop_symbol, is_definite_clause, conjuncts
 from PropKB import PropKB
 
 class PropDefiniteKB(PropKB):

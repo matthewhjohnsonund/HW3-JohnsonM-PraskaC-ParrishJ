@@ -1,3 +1,4 @@
+# Extended - Added imports and constants
 from logic import (is_symbol, is_var_symbol, is_prop_symbol, subexpressions, is_definite_clause, parse_definite_clause, Expr, expr, first)
 
 

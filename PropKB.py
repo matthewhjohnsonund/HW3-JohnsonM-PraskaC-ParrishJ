@@ -1,3 +1,4 @@
+# Extended - Added imports and modified ask_generator
 from KB import KB, to_cnf, conjuncts, pl_resolution, Expr, first
 
 

@@ -30,6 +30,8 @@ And a few other functions:
     unify            Do unification of two FOL sentences
     diff, simp       Symbolic differentiation and simplification
 """
+
+# Extended - Modified and added imports and classes
 import itertools
 import random
 from collections import defaultdict

@@ -1,5 +1,6 @@
+# Extended - Added imports
 import itertools
-from logic import Expr, expr  # #Extended
+from logic import Expr, expr
 
 def KB_AgentProgram(KB):
     """A generic logical knowledge-based agent program. [Figure 7.1]"""

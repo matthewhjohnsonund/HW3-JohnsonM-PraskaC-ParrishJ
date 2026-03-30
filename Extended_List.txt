@@ -1,0 +1,12 @@
+<==Code Changes==>
+KB.py
+KB_AgentProgram.py
+PL.py
+PL-ForwardBackwardChaining.py
+PropKB.py
+WumpusKB.py
+WumpusKB_ExprFn.py
+
+<==New Files==>
+logic.py
+WumpusMain.py
